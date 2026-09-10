@@ -41,15 +41,15 @@ Core Services
 
 The Graph Platform is composed of five core services that communicate or interact with one another. Each service is fairly self-contained, and can be deployed on separate machines with different hardware capabilities.
 
-📚 [Graph Registry](https://github.com/epflgraph/graphregistry): The first layer in the Graph Platform. It ingests data in JSON format through an ETL pipeline, and generates a knowledge graph that feeds the GraphSearch and GraphChat applications. Data can be added to the registry through direct JSON file imports, or through a REST API.
+- [Graph Registry](https://github.com/epflgraph/graphregistry): The first layer in the Graph Platform. It ingests data in JSON format through an ETL pipeline, and generates a knowledge graph that feeds the GraphSearch and GraphChat applications. Data can be added to the registry through direct JSON file imports, or through a REST API.
 
-🤖 [Graph AI](https://github.com/epflgraph/graphai): The semantic analysis engine that provides functionalities such as video segmentation, OCR, audio transcription, translation, embeddings, RAG construction, and ontological concepts detection.
+- [Graph AI](https://github.com/epflgraph/graphai): The semantic analysis engine that provides functionalities such as video segmentation, OCR, audio transcription, translation, embeddings, RAG construction, and ontological concepts detection.
 
-🌲 [Graph Ontology](https://github.com/epflgraph/graphontology): A semantic graph of academically relevant concepts built from Wikipedia data. The network of concepts - over 1 million in size - is algorithmically clustered into naturally occuring categories with minimal human intervention.
+- [Graph Ontology](https://github.com/epflgraph/graphontology): A semantic graph of academically relevant concepts built from Wikipedia data. The network of concepts - over 1 million in size - is algorithmically clustered into naturally occuring categories with minimal human intervention.
 
-🔎 [Graph Search](https://github.com/epflgraph/graphsearch_ui): A lightning fast search and recommendation engine sitting on top of the Graph Registry service. It is a web interface that enables users to navigate, explore, and discover the knowledge graph and the academic resources it indexes.
+- [Graph Search](https://github.com/epflgraph/graphsearch_ui): A lightning fast search and recommendation engine sitting on top of the Graph Registry service. It is a web interface that enables users to navigate, explore, and discover the knowledge graph and the academic resources it indexes.
 
-💬 [Graph Chat](https://github.com/epflgraph/graphchatbot): An LLM-based chatbot that leverages the knowledge graph to support and enrich answers to user prompts. It uses retrieval-augmented generation (RAG) techniques to provide relevant resources idexed by the knowledge graph, essentially providing natural language based navigation and discovery of the institution's academic content.
+- [Graph Chat](https://github.com/epflgraph/graphchatbot): An LLM-based chatbot that leverages the knowledge graph to support and enrich answers to user prompts. It uses retrieval-augmented generation (RAG) techniques to provide relevant resources idexed by the knowledge graph, essentially providing natural language based navigation and discovery of the institution's academic content.
 
 ### Data infrastructure
 
@@ -59,8 +59,9 @@ It is recommended to have two active deployments of each. One for a core service
 
 To facilitate management and transfer of data across these services, we provide the following utilities:
 
-🐳 [DB client](https://github.com/epflgraph/graphdb-client): A self-contained MySQL/MariaDB client with its own CLI. <br />
-⚡️ [ES client](https://github.com/epflgraph/graphes-client): A self-contained ElasticSearch client with its own CLI.
+- [DB client](https://github.com/epflgraph/graphdb-client): A self-contained MySQL/MariaDB client with its own CLI.
+
+- [ES client](https://github.com/epflgraph/graphes-client): A self-contained ElasticSearch client with its own CLI.
 
 Both clients are deployable by local Python-based installation or through Docker.
 
@@ -87,6 +88,8 @@ The core services should ideally be deployed on different machines with varying 
 | Graph Chat     | 4  | 4 GB  | 50 GB  |
 
 > **Table:** Minimal recommended hardware specifications for the Graph Platform core services.
+
+<br />
 
 The Graph AI service in particular will further benefit from the use of GPUs such as the Nvidia A100. This is because endpoints that perform voice transcription, text translation, and embeddings make use of models that are optimised for, and execute much faster in GPUs.
 
