@@ -13,7 +13,7 @@
 
 **List of core services:**<br/>
 [Registry](https://github.com/epflgraph/graphregistry) |
-[AI](https://github.com/epflgraph/graphai) |
+[AI](https://github.com/epflgraph/graphai/tree/rcp_deployment) |
 [Ontology](https://github.com/epflgraph/graphontology) |
 [Search](https://github.com/epflgraph/graphsearch_ui) |
 [Chat](https://github.com/epflgraph/graphchatbot)
@@ -43,7 +43,7 @@ The Graph Platform is composed of five core services that communicate or interac
 
 - [Graph Registry](https://github.com/epflgraph/graphregistry): The first layer in the Graph Platform. It ingests data in JSON format through an ETL pipeline, and generates a knowledge graph that feeds the GraphSearch and GraphChat applications. Data can be added to the registry through direct JSON file imports, or through a REST API.
 
-- [Graph AI](https://github.com/epflgraph/graphai): The semantic analysis engine that provides functionalities such as video segmentation, OCR, audio transcription, translation, embeddings, RAG construction, and ontological concepts detection.
+- [Graph AI](https://github.com/epflgraph/graphai/tree/rcp_deployment): The semantic analysis engine that provides functionalities such as video segmentation, OCR, audio transcription, translation, embeddings, RAG construction, and ontological concepts detection.
 
 - [Graph Ontology](https://github.com/epflgraph/graphontology): A semantic graph of academically relevant concepts built from Wikipedia data. The network of concepts - over 1 million in size - is algorithmically clustered into naturally occuring categories with minimal human intervention.
 
