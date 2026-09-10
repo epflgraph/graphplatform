@@ -51,14 +51,15 @@ The Graph Platform is composed of five core services that communicate or interac
 
 💬 [Graph Chat](https://github.com/epflgraph/graphchatbot): An LLM-based chatbot that leverages the knowledge graph to support and enrich answers to user prompts. It uses retrieval-augmented generation (RAG) techniques to provide relevant resources idexed by the knowledge graph, essentially providing natural language based navigation and discovery of the institution's academic content.
 
+### Data infrastructure
+
 In addition to these core services, the Graph Platform requires at least one relational database server like MySQL or MariaDB, and an indexing engine like ElasticSearch or OpenSearch.
 
 It is recommended to have two active deployments of each. One for a core services / test environment, and one for a production environment serving GraphSearch.
 
 To facilitate management and transfer of data across these services, we provide the following utilities:
 
-🐳 [DB client](https://github.com/epflgraph/graphdb-client): A self-contained MySQL/MariaDB client with its own CLI.
-
+🐳 [DB client](https://github.com/epflgraph/graphdb-client): A self-contained MySQL/MariaDB client with its own CLI. <br />
 ⚡️ [ES client](https://github.com/epflgraph/graphes-client): A self-contained ElasticSearch client with its own CLI.
 
 Both clients are deployable by local Python-based installation or through Docker.
