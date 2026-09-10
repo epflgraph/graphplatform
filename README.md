@@ -1,4 +1,4 @@
-<img src="assets/icon.png" alt="Project logo" height="64">
+<img src="assets/icon-9ed65a81.png" alt="Project logo" height="64">
 
 [![License](https://img.shields.io/github/license/epflgraph/graphproject)](https://github.com/epflgraph/graphproject/blob/master/LICENSE)
 [![Latest Release on Github](https://img.shields.io/github/v/release/epflgraph/graphproject?sort=semver)](https://github.com/epflgraph/graphproject/releases/latest)
@@ -9,7 +9,7 @@
 [![Open PRs](https://img.shields.io/github/issues-pr/epflgraph/graphproject)](https://github.com/epflgraph/graphproject/pulls)
 =
 
-🏠 Graph Project
+🏠 Project Home
 
 **List of core services:**<br/>
 [Registry](https://github.com/epflgraph/graphregistry) |
@@ -28,50 +28,67 @@
 
 <br />
 
-Why Graph?
-==========
-The *Graph Data Platform* - developed by the AI engineering team at the [EPFL Center for Digital Education](https://www.epfl.ch/education/educational-initiatives/cede/) - is an open-source alternative to proprietary research information systems like Elsevier Pure. It federates educational and institutional data into a semantically interconnected knowledge graph of people, publications, labs, startups, courses, video lectures, and other educational resources. The [GraphSearch](https://graphsearch.epfl.ch/en) application provides lightning-fast search and discovery of the knowledge graph, as well as LLM-powered [chatbot](https://graphsearch.epfl.ch/en/chatbot) interaction with the indexed resources.
+Project Overview
+================
+The **Graph Platform**, developed by the AI Engineering team at the [Center for Digital Education](https://www.epfl.ch/education/educational-initiatives/cede/) at EPFL (Swiss Federal Institute of Technology Lausanne), is an open-source **data intelligence platform** for education and research.
 
-How the systems interact
-========================
-The diagram bellow shows the five major building blocks of the Graph ecosystem and how data, queries, and AI capabilities flow between them. The high-level pipeline is:
+The platform uses semantic analysis and graph-based algorithms to federate, enrich, and interconnect academic content and entities, such as courses, lectures, exercises, publications, and other educational and research resources, into a unified **knowledge graph**.
 
-1. **External data sources** push raw data into **Graph Registry** through its data ingestion API.
-2. **Graph Registry** cleans, links, and constructs the knowledge graph, calling **Graph AI** for semantic analysis, concept detection, embeddings, and multimedia processing during graph construction.
-3. The resulting **knowledge graph** is persisted and becomes a primary data source for **Graph Search**.
-4. **Graph Data** (Elasticsearch + MySQL/MariaDB) provides indexed full-text/vector search and warehouse storage for **Graph Search**.
-5. **Graph Search** exposes the public web UI, search autocomplete, and the Graph Chatbot; the chatbot delegates complex, multi-step questions to **Intelligent Agents**.
-6. **Intelligent Agents** orchestrate LLM and tool-based reasoning, calling **Graph AI** for vector search, retrieval, and RAG construction.
-7. Outputs from AI processing and RAG construction are written back into **Graph Data**, closing the loop.
+On top of the platform, the [GraphSearch](https://graphsearch.epfl.ch/en) app provides a fast and intuitive interface for searching and discovering the knowledge graph. It also enables conversational access to indexed resources through an LLM-powered [chatbot](https://graphsearch.epfl.ch/en/chatbot).
 
-<img src="assets/Graph_ecosystem.png" alt="Graph ecosystem">
+Core Services
+=============
 
-Component responsibilities
---------------------------
-| Component | What it does |
-|-----------|--------------|
-| **Graph Registry** | Ingests external data, builds and maintains the semantic knowledge graph. Contains Airflow orchestration, graph calculation logic, a data ingestion API, and the knowledge graph itself. |
-| **Graph Data** | Shared data infrastructure: Elasticsearch for indexing and vector search, and MySQL/MariaDB as the data warehouse. |
-| **Graph Search** | User-facing layer: GraphSearch UI, web integrations, and the Graph Chatbot. |
-| **Intelligent Agents** | LLM/tool-based orchestration layer, exposing the Graph Chat API and RAG Chat API. |
-| **Graph AI** | AI engine providing semantic analysis, vectorisation, multimedia processing, RAG retrieval, RAG construction, and ontology management. |
+The Graph Platform is composed of five core services that communicate or interact with one another. Each service is fairly self-contained, and can be deployed on separate machines with different hardware capabilities.
 
-Data and control flow details
------------------------------
-### Ingestion and graph construction
-External data sources feed the **Graph Registry** data ingestion API. The Registry runs ETL workflows (orchestrated by Airflow), applies graph calculation logic, and calls the **Graph AI API** for semantic enrichment — concept detection, translation, embedding, OCR, video/audio processing, and ontology mapping. The result is a curated, semantically interconnected knowledge graph.
+📚 [Graph Registry](https://github.com/epflgraph/graphregistry): The first layer in the Graph Platform. It ingests data in JSON format through an ETL pipeline, and generates a knowledge graph that feeds the GraphSearch and GraphChat applications. Data can be added to the registry through direct JSON file imports, or through a REST API.
 
-### Search and discovery
-**Graph Search** reads from two sources:
-- the **knowledge graph** maintained by Graph Registry, for structured entities and relationships;
-- **Graph Data**, for fast full-text/vector search, autocomplete, and chatbot context.
+🤖 [Graph AI](https://github.com/epflgraph/graphai): The semantic analysis engine that provides functionalities such as video segmentation, OCR, audio transcription, translation, embeddings, RAG construction, and ontological concepts detection.
 
-This dual access lets GraphSearch return both precise entity pages and ranked, recommendation-style results.
+🌲 [Graph Ontology](https://github.com/epflgraph/graphontology): A semantic graph of academically relevant concepts built from Wikipedia data. The network of concepts - over 1 million in size - is algorithmically clustered into naturally occuring categories with minimal human intervention.
 
-### Chatbot and intelligent agents
-When a user asks a complex question in the Graph Chatbot, the request flows through the **Graph Chat API** to **Intelligent Agents**. The agent orchestration layer uses LLMs and tools to plan the answer, queries **Graph AI** for vector search/retrieval and semantic processing, and may read from the knowledge graph via Graph Search/Graph Data. Final answers are streamed back to the chatbot UI.
+🔎 [Graph Search](https://github.com/epflgraph/graphsearch_ui): A lightning fast search and recommendation engine sitting on top of the Graph Registry service. It is a web interface that enables users to navigate, explore, and discover the knowledge graph and the academic resources it indexes.
 
-### AI outputs feed the data layer
-**Graph AI** does not only answer queries at request time. Results from batch AI processing and RAG construction are also stored in **Graph Data** (Elasticsearch indexes and MySQL/MariaDB), so that future search and chatbot requests can reuse pre-computed vectors, embeddings, and RAG artefacts.
+💬 [Graph Chat](https://github.com/epflgraph/graphchatbot): An LLM-based chatbot that leverages the knowledge graph to support and enrich answers to user prompts. It uses retrieval-augmented generation (RAG) techniques to provide relevant resources idexed by the knowledge graph, essentially providing natural language based navigation and discovery of the institution's academic content.
 
-In short, the ecosystem splits cleanly into: data ingestion and graph construction (Graph Registry), shared data infrastructure (Graph Data), user-facing search and chat (Graph Search), agentic reasoning (Intelligent Agents), and AI/semantic capabilities (Graph AI). The arrows in the diagram represent these read, write, and call relationships that keep the platform consistent and discoverable.
+In addition to these core services, the Graph Platform requires at least one relational database server like MySQL or MariaDB, and an indexing engine like ElasticSearch or OpenSearch.
+
+It is recommended to have two active deployments of each. One for a core services / test environment, and one for a production environment serving GraphSearch.
+
+To facilitate management and transfer of data across these services, we provide the following utilities:
+
+🐳 [DB client](https://github.com/epflgraph/graphdb-client): A self-contained MySQL/MariaDB client with its own CLI.
+
+⚡️ [ES client](https://github.com/epflgraph/graphes-client): A self-contained ElasticSearch client with its own CLI.
+
+Both clients are deployable by local Python-based installation or through Docker.
+
+<img src="assets/Graph_ecosystem.png" alt="Graph Platform service interaction" style="border: 1px solid #8b8b8b;">
+
+> **Figure:** Core services of the Graph Platform and their respective interactions.
+
+<br />
+
+Platform Deployment
+===================
+
+The core services should ideally be deployed on different machines with varying harware capabilities, in order to optimize for each use case. The recomended minimal specifications are shown in the table bellow.
+
+| Service | CPU Cores | RAM      | Hard Drive |
+|---------|-----------|----------|------------|
+| ElasticSearch  | 4  | 8 GB  | 200 GB |
+| MySQL/MariaDB  | 4  | 8 GB  | 2 TB   |
+| Graph Registry | 4  | 4 GB  | 100 GB |
+| Graph AI       | 16 | 32 GB | 100 GB |
+| Graph Search   | 4  | 8 GB  | 50 GB  |
+| Graph Chat     | 4  | 4 GB  | 50 GB  |
+
+> **Table:** Minimal recommended hardware specifications for the Graph Platform core services.
+
+The Graph AI service in particular will further benefit from the use of GPUs such as the Nvidia A100. This is because endpoints that perform voice transcription, text translation, and embeddings make use of models that are optimised for, and execute much faster in GPUs.
+
+The Graph Ontology does not require its own machine. It is composed of two static datasets; one SQL-based, hosted on MySQL/MariaDB (80 GB), and the other index-based, hosted on ElasticSearch (35 GB).
+
+Deployment Instructions
+=======================
+For detailed instructions on how to deploy the Graph Platform core services, you may consult the dedicated repository pages linked above.
