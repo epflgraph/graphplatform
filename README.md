@@ -64,6 +64,8 @@ To facilitate management and transfer of data across these services, we provide 
 
 Both clients are deployable by local Python-based installation or through Docker.
 
+<br />
+
 <img src="assets/Graph_ecosystem.png" alt="Graph Platform service interaction" style="border: 1px solid #8b8b8b;">
 
 > **Figure:** Core services of the Graph Platform and their respective interactions.
