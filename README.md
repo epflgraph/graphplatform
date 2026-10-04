@@ -1,12 +1,12 @@
 <img src="assets/icon-9ed65a81.png" alt="Project logo" height="64">
 
-[![License](https://img.shields.io/github/license/epflgraph/graphproject)](https://github.com/epflgraph/graphproject/blob/master/LICENSE)
-[![Latest Release on Github](https://img.shields.io/github/v/release/epflgraph/graphproject?sort=semver)](https://github.com/epflgraph/graphproject/releases/latest)
-[![GitHub Stars](https://img.shields.io/github/stars/epflgraph/graphproject?style=social)](https://github.com/epflgraph/graphproject/stargazers)
-[![Contributors](https://img.shields.io/github/contributors/epflgraph/graphproject)](https://github.com/epflgraph/graphproject/graphs/contributors)
-[![Last Commit](https://img.shields.io/github/last-commit/epflgraph/graphproject)](https://github.com/epflgraph/graphproject/commits/master)
-[![Open Issues](https://img.shields.io/github/issues/epflgraph/graphproject)](https://github.com/epflgraph/graphproject/issues)
-[![Open PRs](https://img.shields.io/github/issues-pr/epflgraph/graphproject)](https://github.com/epflgraph/graphproject/pulls)
+[![License](https://img.shields.io/github/license/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/blob/master/LICENSE)
+[![Latest Release on Github](https://img.shields.io/github/v/release/epflgraph/graphplatform?sort=semver)](https://github.com/epflgraph/graphplatform/releases/latest)
+[![GitHub Stars](https://img.shields.io/github/stars/epflgraph/graphplatform?style=social)](https://github.com/epflgraph/graphplatform/stargazers)
+[![Contributors](https://img.shields.io/github/contributors/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/commits/master)
+[![Open Issues](https://img.shields.io/github/issues/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/issues)
+[![Open PRs](https://img.shields.io/github/issues-pr/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/pulls)
 =
 
 🏠 Project Home
