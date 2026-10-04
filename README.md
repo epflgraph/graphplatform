@@ -25,7 +25,6 @@
 [SDK](https://github.com/epflgraph/graph-sdk) |
 [Agents](https://github.com/epflgraph/graphagents)
 
-
 <br />
 
 Project Overview
