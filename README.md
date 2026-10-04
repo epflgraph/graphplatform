@@ -1,13 +1,8 @@
 <img src="assets/icon-9ed65a81.png" alt="Project logo" height="64">
 
-[![License](https://img.shields.io/github/license/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/blob/master/LICENSE)
-[![Latest Release on Github](https://img.shields.io/github/v/release/epflgraph/graphplatform?sort=semver)](https://github.com/epflgraph/graphplatform/releases/latest)
-[![GitHub Stars](https://img.shields.io/github/stars/epflgraph/graphplatform?style=social)](https://github.com/epflgraph/graphplatform/stargazers)
-[![Contributors](https://img.shields.io/github/contributors/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/graphs/contributors)
-[![Last Commit](https://img.shields.io/github/last-commit/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/commits/master)
-[![Open Issues](https://img.shields.io/github/issues/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/issues)
-[![Open PRs](https://img.shields.io/github/issues-pr/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/pulls)
-=
+[![License](https://img.shields.io/github/license/epflgraph/graphplatform)](https://github.com/epflgraph/graphplatform/blob/main/LICENSE)
+[![Graph Search](https://img.shields.io/badge/GraphSearch-graphsearch.epfl.ch-red)](https://graphsearch.epfl.ch/en)
+[![Graph Chat](https://img.shields.io/badge/Graph_Chat-graphsearch.epfl.ch%2Fchatbot-blue)](https://graphsearch.epfl.ch/en/chatbot)
 
 🏠 Project Home
 
