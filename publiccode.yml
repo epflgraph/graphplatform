@@ -1,0 +1,108 @@
+publiccodeYmlVersion: "0"
+
+name: EPFL Graph Platform
+applicationSuite: EPFL Graph Platform
+url: "https://github.com/epflgraph/graphplatform"
+logo: assets/icon-9ed65a81.png
+
+platforms:
+  - web
+
+categories:
+  - knowledge-management
+  - data-analytics
+  - educational-content
+
+usedBy:
+  - EPFL
+
+developmentStatus: stable
+
+softwareType: "standalone/other"
+
+organisation:
+  uri: "https://www.epfl.ch"
+  name: École polytechnique fédérale de Lausanne (EPFL)
+
+intendedAudience:
+  scope:
+    - education
+    - research
+
+description:
+  en:
+    shortDescription: >-
+      Open-source data intelligence platform that federates academic content
+      into a knowledge graph for education and research.
+    longDescription: >-
+      The **Graph Platform**, developed by the AI Engineering team at the
+      [Center for Digital Education (CEDE)](https://www.epfl.ch/education/educational-initiatives/cede/)
+      at EPFL, is an open-source **data intelligence platform** for
+      education and research.
+
+
+      It uses semantic analysis and graph-based algorithms to federate,
+      enrich and interconnect academic content and entities (courses,
+      lectures, exercises, publications and other educational and research
+      resources) into a unified **knowledge graph**. On top of the platform,
+      the [GraphSearch](https://graphsearch.epfl.ch/en) application offers
+      search, discovery and conversational access to the indexed resources.
+
+
+      This repository describes the platform as a whole. It is composed of
+      core services, each published in its own repository and deployable on
+      a separate machine:
+
+
+      - [Graph Registry](https://github.com/epflgraph/graphregistry): data
+      ingestion, management and knowledge graph construction.
+
+      - [Graph AI](https://github.com/epflgraph/graphai): semantic analysis
+      engine (video segmentation, OCR, transcription, translation,
+      embeddings, RAG, concept detection).
+
+      - [Graph Ontology](https://github.com/epflgraph/graphontology): a
+      network of academically relevant concepts built from Wikipedia.
+
+      - [Graph Chat](https://github.com/epflgraph/graphchatbot): an
+      LLM-based chatbot that uses the knowledge graph to answer questions.
+    documentation: "https://github.com/epflgraph/graphplatform#readme"
+    features:
+      - Federation of courses, lectures, exercises and publications into one knowledge graph
+      - Automatic semantic enrichment of academic content
+      - Concept detection against an ontology of over one million academic concepts
+      - Video, audio and slide analysis (segmentation, OCR, transcription, translation)
+      - Search and recommendation over the institution's academic resources
+      - Conversational access to indexed resources through an LLM chatbot
+      - Modular services that can be deployed on separate machines
+
+legal:
+  license: Apache-2.0
+  mainCopyrightOwner: EPFL
+
+maintenance:
+  type: internal
+  contacts:
+    # TODO: a real person (no generic addresses), e.g. the platform lead
+    - name: Francisco Pinto
+      email: francisco.pinto@epfl.ch
+      affiliation: EPFL Center for Digital Education (CEDE)
+
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - fr
+
+dependsOn:
+  open:
+    - name: Graph Registry
+    - name: Graph AI
+    - name: Graph Ontology
+    - name: Graph Chat
+    # TODO:  add once graphsearch_ui is published - name: Graph Search 
+    - name: MySQL or MariaDB
+    - name: Elasticsearch or OpenSearch
+  hardware:
+    - name: GPU (e.g. NVIDIA A100) for the Graph AI service
+      optional: true
