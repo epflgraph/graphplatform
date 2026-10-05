@@ -3,7 +3,7 @@ publiccodeYmlVersion: "0"
 name: EPFL Graph Platform
 applicationSuite: EPFL Graph Platform
 url: "https://github.com/epflgraph/graphplatform"
-logo: assets/icon-9ed65a81.png
+logo: assets/logo_v1_vector.svg
 
 platforms:
   - web
